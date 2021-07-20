@@ -1,23 +1,24 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 
 void installGit();
 void sshGitHub();
 int lenString(char *string);
 void title(char *string, int stringLen);
+void areYouReady(char *thing, int order);
 
 int main()
 {
 
   printf("Do you know how to install Git?\n");
-  printf("0) No\n1) Yes\nYour choice: ");
+  printf("0) No\t1) Yes\nYour choice: ");
   int choice = 0;
   scanf("%d", &choice);
   if(choice == 0) installGit();
   choice = 0;
 
   printf("Do you know how to use SSH to connect to Git Hub?\n");
-  printf("0) No\n1) Yes\nYour choice: ");
+  printf("0) No\t1) Yes\nYour choice: ");
   scanf("%d", &choice);
   if(choice == 0) sshGitHub();
 
@@ -42,25 +43,59 @@ void title(char *string, int stringLen)
   printf("\n\n");
 }
 
+void areYouReady(char *thing, int order)
+{
+  char *ayr = "Are you ready for ";
+  char *msg = malloc(sizeof(ayr) + 1 + sizeof(thing) + 1 + sizeof(order));
+  int lenAyr = lenString(ayr);
+  int lenThing = lenString(thing);
+  int i = 0;
+  int j = 0;
+  int k = 0;
+
+  while(*(ayr+j) != '\0')
+  {
+    i = j;
+    *(msg+i) = *(ayr+j);
+    j++;
+  }
+  i = j;
+
+  while(*(thing+k) != '\0')
+  {
+    *(msg+i) = *(thing+k);
+    k++;
+    i++;
+  }
+
+  for(int cpt = 0; cpt < lenAyr + lenThing + 4; cpt++) printf("-");
+  printf("\n");
+  printf("%s %d?\n", msg, order);
+  for(int cpt = 0; cpt < lenAyr + lenThing + 4; cpt++) printf("-");
+  printf("\n");
+  printf("0) No\t1) Yes\nYour choice: ");
+}
+
 void installGit()
 {
   char *git = "How to install Git?";
   int lenGit = lenString(git);
   title(git, lenGit);
   int step = 0;
-  printf("Are you ready for step 1?\n0) No\n1) Yes\nYour choice: ");
+
+  areYouReady("step", 1);
   scanf("%d", &step);
   if (step == 1) printf("Step 1: visit https://git-scm.com/downloads\n");
   step = 0;
   printf("\n-----------\n\n");
 
-  printf("Are you ready for step 2?\n0) No\n1) Yes\nYour choice: ");
+  areYouReady("step", 2);
   scanf("%d", &step);
   if (step == 1) printf("Step 2: open your terminal\n");
   step = 0;
   printf("\n-----------\n\n");
 
-  printf("Are you ready for step 3?\n0) No\n1) Yes\nYour choice: ");
+  areYouReady("step", 3);
   scanf("%d", &step);
   if (step == 1)
   {
@@ -70,7 +105,7 @@ void installGit()
   step = 0;
   printf("\n-----------\n\n");
 
-  printf("Are you ready for step 4?\n0) No\n1) Yes\nYour choice: ");
+  areYouReady("step", 4);
   scanf("%d", &step);
   if (step == 1)
   {
@@ -93,7 +128,7 @@ void sshGitHub()
   title(ssh, lenSSH);
 
   int step = 0;
-  printf("Are you ready for step 1?\n0) No\n1) Yes\nYour choice: ");
+  areYouReady("step", 1);
   scanf("%d", &step);
   if (step == 1)
   {
@@ -102,7 +137,7 @@ void sshGitHub()
   step = 0;
   printf("\n-----------\n\n");
 
-  printf("Are you ready for step 2?\n0) No\n1) Yes\nYour choice: ");
+  areYouReady("step", 2);
   scanf("%d", &step);
   if (step == 1)
   {
@@ -112,7 +147,7 @@ void sshGitHub()
   step = 0;
   printf("\n-----------\n\n");
   
-  printf("Are you ready for step 3?\n0) No\n1) Yes\nYour choice: ");
+  areYouReady("step", 3);
   scanf("%d", &step);
   if (step == 1)
   {
@@ -123,7 +158,7 @@ void sshGitHub()
   step = 0;
   printf("\n-----------\n\n");
   
-  printf("Are you ready for step 4?\n0) No\n1) Yes\nYour choice: ");
+  areYouReady("step", 4);
   scanf("%d", &step);
   if (step == 1)
   {
@@ -133,7 +168,7 @@ void sshGitHub()
   step = 0;
   printf("\n-----------\n\n");
   
-  printf("Are you ready for step 5?\n0) No\n1) Yes\nYour choice: ");
+  areYouReady("step", 5);
   scanf("%d", &step);
   if (step == 1)
   {
@@ -143,7 +178,7 @@ void sshGitHub()
   step = 0;
   printf("\n-----------\n\n");
   
-  printf("Are you ready for step 6?\n0) No\n1) Yes\nYour choice: ");
+  areYouReady("step", 6);
   scanf("%d", &step);
   if (step == 1)
   {
@@ -154,7 +189,7 @@ void sshGitHub()
   step = 0;
   printf("\n-----------\n\n");
   
-  printf("Are you ready for step 7?\n0) No\n1) Yes\nYour choice: ");
+  areYouReady("step", 7);
   scanf("%d", &step);
   if (step == 1)
   {
@@ -167,7 +202,7 @@ void sshGitHub()
   step = 0;
   printf("\n-----------\n\n");
   
-  printf("Are you ready for step 8?\n0) No\n1) Yes\nYour choice: ");
+  areYouReady("step", 8);
   scanf("%d", &step);
   if (step == 1)
   {
@@ -178,7 +213,7 @@ void sshGitHub()
   step = 0;
   printf("\n-----------\n\n");
   
-  printf("Are you ready for step 9?\n0) No\n1) Yes\nYour choice: ");
+  areYouReady("step", 9);
   scanf("%d", &step);
   if (step == 1)
   {
@@ -190,7 +225,7 @@ void sshGitHub()
   step = 0;
   printf("\n-----------\n\n");
   
-  printf("Are you ready for step 10?\n0) No\n1) Yes\nYour choice: ");
+  areYouReady("step", 10);
   scanf("%d", &step);
   if (step == 1)
   {
@@ -201,7 +236,7 @@ void sshGitHub()
   step = 0;
   printf("\n-----------\n\n");
   
-  printf("Are you ready for step 11?\n0) No\n1) Yes\nYour choice: ");
+  areYouReady("step", 11);
   scanf("%d", &step);
   if (step == 1)
   {
@@ -211,7 +246,7 @@ void sshGitHub()
   step = 0;
   printf("\n-----------\n\n");
   
-  printf("Are you ready for step 12?\n0) No\n1) Yes\nYour choice: ");
+  areYouReady("step", 12);
   scanf("%d", &step);
   if (step == 1)
   {
@@ -222,7 +257,7 @@ void sshGitHub()
   step = 0;
   printf("\n-----------\n\n");
   
-  printf("Are you ready for step 13?\n0) No\n1) Yes\nYour choice: ");
+  areYouReady("step", 13);
   scanf("%d", &step);
   if (step == 1)
   {
@@ -232,11 +267,10 @@ void sshGitHub()
   step = 0;
   printf("\n-----------\n\n");
   
-  printf("Are you ready for step 14?\n0) No\n1) Yes\nYour choice: ");
+  areYouReady("step", 14);
   scanf("%d", &step);
   if (step == 1)
   {
-    printf("Step 14: You should see something like this:\n");
     printf("Hi your_name! You've successfully authenticated,\n");
     printf("but GitHub does not provide shell access.\n");
   }
