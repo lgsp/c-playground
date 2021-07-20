@@ -3,10 +3,14 @@
 
 void installGit();
 void sshGitHub();
+int lenString(char *string);
+void title(char *string, int stringLen);
 
 int main()
 {
-  printf("Do you know how to install Git?\n0) No\n1) Yes\nYour choice: ");
+
+  printf("Do you know how to install Git?\n");
+  printf("0) No\n1) Yes\nYour choice: ");
   int choice = 0;
   scanf("%d", &choice);
   if(choice == 0) installGit();
@@ -17,25 +21,44 @@ int main()
   scanf("%d", &choice);
   if(choice == 0) sshGitHub();
 
-  
-  
   return 0;
 }
 
 
+int lenString(char *string)
+{
+  int i = 0;
+  while(*(string+i) != '\0') i++;
+  return i;
+}
+
+void title(char *string, int stringLen)
+{
+  printf("\n");
+  for(int i = 0; i < stringLen+4; i++) printf("=");
+  printf("\n");
+  printf("= %s =\n", string);
+  for(int i = 0; i < stringLen+4; i++) printf("=");
+  printf("\n\n");
+}
+
 void installGit()
 {
-  printf("How to install Git?\n");
+  char *git = "How to install Git?";
+  int lenGit = lenString(git);
+  title(git, lenGit);
   int step = 0;
   printf("Are you ready for step 1?\n0) No\n1) Yes\nYour choice: ");
   scanf("%d", &step);
   if (step == 1) printf("Step 1: visit https://git-scm.com/downloads\n");
   step = 0;
+  printf("\n-----------\n\n");
 
   printf("Are you ready for step 2?\n0) No\n1) Yes\nYour choice: ");
   scanf("%d", &step);
   if (step == 1) printf("Step 2: open your terminal\n");
   step = 0;
+  printf("\n-----------\n\n");
 
   printf("Are you ready for step 3?\n0) No\n1) Yes\nYour choice: ");
   scanf("%d", &step);
@@ -45,6 +68,7 @@ void installGit()
     printf(" and hit 'Enter'\n");
   }
   step = 0;
+  printf("\n-----------\n\n");
 
   printf("Are you ready for step 4?\n0) No\n1) Yes\nYour choice: ");
   scanf("%d", &step);
@@ -53,12 +77,21 @@ void installGit()
     printf("Step 4: type 'git --version'");
     printf(" and hit 'Enter'\n");
   }
-  printf("CONGRATUALTIONS: YOU HAVE INSTALLED THE LATEST GIT VERSION!\n");
+  step = 0;
+  printf("\n-----------\n\n");
+
+  char *congrat = "CONGRATUALTIONS: YOU HAVE INSTALLED THE LATEST GIT VERSION!";
+  int lenCongrat = lenString(congrat);
+  title(congrat, lenCongrat);
+  
 }
 
 void sshGitHub()
 {
-  printf("How to use SSH to connect to GitHub?\n");
+  char *ssh = "How to use SSH to connect to GitHub?";
+  int lenSSH = lenString(ssh);
+  title(ssh, lenSSH);
+
   int step = 0;
   printf("Are you ready for step 1?\n0) No\n1) Yes\nYour choice: ");
   scanf("%d", &step);
