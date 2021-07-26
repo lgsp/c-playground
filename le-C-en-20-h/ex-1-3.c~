@@ -1,5 +1,0 @@
-main()
-{
-  puts ("Bonjour");
-  getchar();
-}
