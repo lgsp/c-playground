@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void installGit();
-void sshGitHub();
 int lenString(char *string);
 void title(char *string, int stringLen);
 void areYouReady(char *thing, int order);
+void installGit();
+void sshGitHub();
+
 
 int main()
 {
